@@ -753,8 +753,8 @@ _kbifInitRegistryOverrides
 {
     NvU32 data32;
 
-    // P2P Override
-    pKernelBif->p2pOverride = BIF_P2P_NOT_OVERRIDEN;
+    // P2P Override - PATCHED: Force P2P enabled (0x11 = READ_ENABLE | WRITE_ENABLE)
+    pKernelBif->p2pOverride = 0x11;
     if (osReadRegistryDword(pGpu, NV_REG_STR_CL_FORCE_P2P, &data32) == NV_OK)
     {
         pKernelBif->p2pOverride = data32;
@@ -762,15 +762,16 @@ _kbifInitRegistryOverrides
         pKernelBif->setProperty(pKernelBif, PDB_PROP_KBIF_P2P_WRITES_DISABLED, FLD_TEST_DRF(_REG_STR, _CL_FORCE_P2P, _WRITE, _DISABLE, data32));
     }
 
-    // P2P force type override
-    pKernelBif->forceP2PType = NV_REG_STR_RM_FORCE_P2P_TYPE_DEFAULT;
+    // P2P force type override - PATCHED: Force BAR1 P2P (PCIEP2P = 0x01)
+    pKernelBif->forceP2PType = NV_REG_STR_RM_FORCE_P2P_TYPE_PCIEP2P;
     if (osReadRegistryDword(pGpu, NV_REG_STR_RM_FORCE_P2P_TYPE, &data32) == NV_OK &&
         (data32 <= NV_REG_STR_RM_FORCE_P2P_TYPE_MAX))
     {
         pKernelBif->forceP2PType = data32;
     }
 
-    pKernelBif->pcieP2PType = NV_REG_STR_RM_PCIEP2P_TYPE_DEFAULT;
+    // PATCHED: Force BAR1 P2P type
+    pKernelBif->pcieP2PType = NV_REG_STR_RM_PCIEP2P_TYPE_BAR1;
     if (osReadRegistryDword(pGpu, NV_REG_STR_RM_PCIEP2P_TYPE, &data32) == NV_OK)
     {
         pKernelBif->pcieP2PType = data32;
