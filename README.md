@@ -58,7 +58,7 @@ nvidia-smi topo -p2p r   # Should show "OK" for all pairs
 
 - [tinygrad](https://github.com/tinygrad/open-gpu-kernel-modules) - Original P2P research
 - [geohot](https://github.com/geohot) - Initial patch concept
-- [guru1987](https://github.com/guru1987) - 580.x port, 8x RTX 3090 testing
+- [guru1987](https://github.com/guru1987) - 580.x port, 12x RTX 3090 testing
 
 ### Special Thanks
 
