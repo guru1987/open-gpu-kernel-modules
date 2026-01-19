@@ -34,7 +34,7 @@ sudo ./NVIDIA-Linux-x86_64-580.105.08.run \
 
 ```bash
 git clone --branch 580.105.08-p2p \
-    https://github.com/YOUR_USERNAME/open-gpu-kernel-modules.git
+    https://github.com/guru1987/open-gpu-kernel-modules.git
 cd open-gpu-kernel-modules
 ./install.sh
 ```
