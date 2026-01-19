@@ -116,6 +116,8 @@ P2P Latency (μs):
 
 - [tinygrad](https://github.com/tinygrad/open-gpu-kernel-modules) - Original P2P research
 - [geohot](https://github.com/geohot) - Initial patch concept
+- [guru1987](https://github.com/guru1987) - 580.x port, testing, 8-GPU validation
+- [Claude](https://claude.ai) - Patch analysis and documentation
 
 ## License
 
